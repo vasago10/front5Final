@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Genera un snapshot del componente TodoList 1`] = `
+<DocumentFragment>
+  <ul>
+    <li
+      class=""
+    >
+      Tarea 1
+      <button>
+        Eliminar
+      </button>
+    </li>
+    <li
+      class=""
+    >
+      Tarea 2
+      <button>
+        Eliminar
+      </button>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Proyecto Módulo 5 — Todo List con Testing</title>
+<style>
+  @page { size: 16in 9in; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #555;
+    color: #222;
+  }
+  .slide {
+    width: 16in;
+    height: 9in;
+    padding: 60px 80px;
+    background: #ffffff;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,.4);
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+  }
+  .slide:last-child { page-break-after: auto; }
+  h1 {
+    font-size: 56px;
+    color: #0b5394;
+    margin-bottom: 30px;
+    border-bottom: 4px solid #0b5394;
+    padding-bottom: 12px;
+  }
+  h2 {
+    font-size: 32px;
+    color: #073763;
+    margin-bottom: 20px;
+  }
+  p, li {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  ul { margin-left: 40px; }
+  code, pre {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 20px;
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  pre {
+    padding: 16px 20px;
+    border-left: 6px solid #0b5394;
+    overflow-x: auto;
+    margin: 14px 0;
+    white-space: pre-wrap;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 16px;
+    font-size: 22px;
+  }
+  th, td {
+    border: 1px solid #999;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th { background: #0b5394; color: #fff; }
+  tr:nth-child(even) td { background: #f2f6fb; }
+  .portada {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0b5394, #3d85c6);
+    color: #fff;
+  }
+  .portada h1 {
+    color: #fff;
+    border: none;
+    font-size: 64px;
+    margin-bottom: 20px;
+  }
+  .portada p { font-size: 28px; margin: 6px 0; color: #fff; }
+  .portada .pie {
+    position: absolute;
+    bottom: 40px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 18px;
+    opacity: .85;
+  }
+  .dos-columnas {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+  }
+  .dos-columnas > div { flex: 1; }
+  .flujo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  .flujo .paso {
+    background: #0b5394;
+    color: #fff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+  }
+  .flujo .flecha { font-size: 36px; color: #0b5394; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<!-- DIAPOSITIVA 1 -->
+<div class="slide portada">
+  <h1>Proyecto Módulo 5</h1>
+  <p>Todo List con Testing</p>
+  <p style="margin-top:40px;font-size:24px;">Front-End</p>
+  <p style="font-size:24px;">vasago10</p>
+  <p style="font-size:22px;">15-11-2026</p>
+  <div class="pie">Enlace al repositorio en Github: github.com/vasago10/front5Final</div>
+</div>
+
+<!-- DIAPOSITIVA 2 -->
+<div class="slide">
+  <h1>¿Qué hemos construido?</h1>
+  <ul>
+    <li>Una aplicación <strong>Todo List</strong> en React.</li>
+    <li>Con una <strong>suite de pruebas automatizadas</strong> usando Jest + React Testing Library.</li>
+    <li>Cubriendo los <strong>4 niveles de testing</strong>:
+      <ul>
+        <li>Unitarias</li>
+        <li>Snapshot</li>
+        <li>Integración</li>
+        <li>Aceptación</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 3 -->
+<div class="slide">
+  <h1>Stack tecnológico y organización</h1>
+  <div class="dos-columnas">
+    <div>
+      <h2>Stack</h2>
+      <ul>
+        <li>React 19</li>
+        <li>Jest 29 + jsdom</li>
+        <li>React Testing Library</li>
+        <li>Babel (preset-env + preset-react)</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Estructura</h2>
+      <pre>components/
+ ├── TodoApp.jsx
+ ├── TodoList.jsx
+ └── TodoItem.jsx
+tests/
+ ├── TodoItem.test.js
+ ├── TodoList.test.jsx
+ ├── TodoApp.test.jsx
+ └── TodoAppAcceptance.test.jsx</pre>
+    </div>
+  </div>
+</div>
+
+<!-- DIAPOSITIVA 4 -->
+<div class="slide">
+  <h1>Flujo de trabajo</h1>
+  <div class="flujo">
+    <div class="paso">Desarrollo<br/>del componente</div>
+    <div class="flecha">→</div>
+    <div class="paso">Test<br/>unitario</div>
+    <div class="flecha">→</div>
+    <div class="paso">Snapshot</div>
+    <div class="flecha">→</div>
+    <div class="paso">Test de<br/>integración</div>
+    <div class="flecha">→</div>
+    <div class="paso">Test de<br/>aceptación</div>
+    <div class="flecha">→</div>
+    <div class="paso">Commit<br/>+ push</div>
+  </div>
+  <p style="margin-top:50px;font-style:italic;">
+    Cada capa verifica un nivel distinto: desde "el componente pinta el texto"
+    hasta "el usuario puede agregar, completar y eliminar tareas".
+  </p>
+</div>
+
+<!-- DIAPOSITIVA 5 -->
+<div class="slide">
+  <h1>Configuración de Jest + Babel</h1>
+  <pre>"scripts": { "test": "jest" },
+"jest": {
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["&lt;rootDir&gt;/jest.setup.js"]
+},
+"babel": {
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}</pre>
+  <ul>
+    <li><code>jsdom</code> simula el navegador en Node.</li>
+    <li><code>jest.setup.js</code> carga <code>@testing-library/jest-dom</code> para matchers como <code>toBeInTheDocument()</code> y <code>toHaveClass()</code>.</li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 6 -->
+<div class="slide">
+  <h1>Pruebas unitarias — TodoItem</h1>
+  <pre>test('Muestra la tarea correctamente', () =&gt; {
+  render(&lt;TodoItem task="Aprender Jest" /&gt;);
+  const taskElement = screen.getByText(/Aprender Jest/i);
+  expect(taskElement).toBeInTheDocument();
+});</pre>
+  <h2>Qué valida</h2>
+  <ul>
+    <li>Que el componente renderiza el texto recibido por props.</li>
+    <li>Aísla el componente: no depende de TodoApp ni de TodoList.</li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 7 -->
+<div class="slide">
+  <h1>Pruebas de snapshot — TodoList</h1>
+  <pre>test('Genera un snapshot del componente TodoList', () =&gt; {
+  const tasks = ['Tarea 1', 'Tarea 2'];
+  const { asFragment } = render(&lt;TodoList tasks={tasks} /&gt;);
+  expect(asFragment()).toMatchSnapshot();
+});</pre>
+  <h2>Qué valida</h2>
+  <ul>
+    <li>Captura la estructura del DOM y la compara con la anterior.</li>
+    <li>Detecta cambios visuales no intencionados.</li>
+    <li>Si el cambio es intencionado: <code>npx jest -u</code> regenera el snapshot.</li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 8 -->
+<div class="slide">
+  <h1>Pruebas de integración — TodoApp</h1>
+  <pre>test('Permite agregar una tarea a la lista', () =&gt; {
+  render(&lt;TodoApp /&gt;);
+  fireEvent.change(screen.getByRole('textbox'), {
+    target: { value: 'Nueva tarea' }
+  });
+  fireEvent.click(screen.getByRole('button', { name: /agregar tarea/i }));
+  expect(screen.getByText(/nueva tarea/i)).toBeInTheDocument();
+});</pre>
+  <h2>Qué valida</h2>
+  <ul>
+    <li>La interacción entre TodoApp, TodoList y TodoItem.</li>
+    <li>Simula escribir + pulsar "Agregar".</li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 9 -->
+<div class="slide">
+  <h1>Pruebas de aceptación — flujo completo</h1>
+  <pre>// 1) agregar
+fireEvent.change(input, { target: { value: 'Tarea importante' } });
+fireEvent.click(button);
+
+// 2) completar
+fireEvent.click(task);
+expect(task).toHaveClass('completed');
+
+// 3) eliminar
+fireEvent.click(screen.getByRole('button', { name: /eliminar/i }));
+expect(screen.queryByText(/tarea importante/i)).not.toBeInTheDocument();</pre>
+  <h2>Qué valida</h2>
+  <ul>
+    <li>El flujo real del usuario: <strong>agregar → completar → eliminar</strong>.</li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 10 -->
+<div class="slide">
+  <h1>Decisiones arquitectónicas</h1>
+  <ul>
+    <li><strong>Separación de responsabilidades</strong>:
+      <ul>
+        <li><code>TodoApp</code> = estado y lógica</li>
+        <li><code>TodoList</code> = presentación</li>
+        <li><code>TodoItem</code> = presentación + estado local <code>completed</code></li>
+      </ul>
+    </li>
+    <li><strong>Inmutabilidad</strong>: <code>setTasks([...tasks, ...])</code> y <code>filter(...)</code>, nunca mutar el array.</li>
+    <li><strong>Comunicación padre-hijo</strong> por props y callbacks (<code>onDelete</code>).</li>
+    <li><strong>MVC de facto</strong>: modelo = <code>tasks</code>, vista = <code>TodoList/TodoItem</code>, controlador = <code>TodoApp</code>.</li>
+  </ul>
+</div>
+
+<!-- DIAPOSITIVA 11 -->
+<div class="slide">
+  <h1>Patrones de diseño aplicados</h1>
+  <table>
+    <tr><th>Patrón</th><th>Dónde</th></tr>
+    <tr><td>Contenedor / Presentacional</td><td><code>TodoApp</code> vs <code>TodoList</code> / <code>TodoItem</code></td></tr>
+    <tr><td>Callback / Strategy</td><td><code>onDelete</code> inyectado</td></tr>
+    <tr><td>Estado inmutable</td><td><code>[...tasks, x]</code> y <code>tasks.filter(...)</code></td></tr>
+    <tr><td>Control de eventos (bubbling)</td><td><code>e.stopPropagation()</code> en botón Eliminar</td></tr>
+    <tr><td>MVC de facto</td><td>Modelo, Vista, Controlador</td></tr>
+  </table>
+</div>
+
+<!-- DIAPOSITIVA 12 -->
+<div class="slide">
+  <h1>Conclusiones</h1>
+  <ul>
+    <li>La app queda <strong>verificada por 4 tipos de pruebas</strong> que cubren desde un componente aislado hasta el flujo completo del usuario.</li>
+    <li>Jest + RTL dan un feedback rápido y fiable.</li>
+    <li>El diseño por componentes + inmutabilidad facilita añadir funcionalidades (editar, filtrar, persistir).</li>
+  </ul>
+  <p style="margin-top:40px;font-size:28px;">
+    <strong>Enlace:</strong> github.com/vasago10/front5Final
+  </p>
+</div>
+
+</body>
+</html>

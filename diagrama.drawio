@@ -1,0 +1,126 @@
+<mxfile host="65bd71144e">
+    <diagram name="Comparativa Arquitecturas" id="unica">
+        <mxGraphModel dx="2043" dy="1041" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1300" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="tituloGeneral" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center;" value="Comparativa de Arquitecturas" vertex="1">
+                    <mxGeometry height="40" width="700" x="350" y="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="monoTitulo" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;" value="Monolito" vertex="1">
+                    <mxGeometry height="30" width="560" x="60" y="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="monoUI" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="UI" vertex="1">
+                    <mxGeometry height="40" width="220" x="230" y="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="monoLogica" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Lógica de negocio" vertex="1">
+                    <mxGeometry height="40" width="220" x="230" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="monoDatos" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Acceso a datos" vertex="1">
+                    <mxGeometry height="40" width="220" x="230" y="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="monoBD" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" value="BD única" vertex="1">
+                    <mxGeometry height="60" width="120" x="280" y="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="monoFlecha" edge="1" parent="1" source="monoDatos" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="monoBD">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="microTitulo" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;" value="Microservicios" vertex="1">
+                    <mxGeometry height="30" width="560" x="720" y="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="microUI" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="UI" vertex="1">
+                    <mxGeometry height="40" width="200" x="900" y="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="microTareas" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Servicio Tareas" vertex="1">
+                    <mxGeometry height="40" width="160" x="780" y="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="microUsuarios" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Servicio Usuarios" vertex="1">
+                    <mxGeometry height="40" width="160" x="1060" y="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="microBDTareas" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" value="BD Tareas" vertex="1">
+                    <mxGeometry height="60" width="120" x="800" y="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="microBDUsuarios" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;" value="BD Usuarios" vertex="1">
+                    <mxGeometry height="60" width="120" x="1080" y="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="mf1" edge="1" parent="1" source="microUI" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="microTareas">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mf2" edge="1" parent="1" source="microUI" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="microUsuarios">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mf3" edge="1" parent="1" source="microTareas" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="microBDTareas">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mf4" edge="1" parent="1" source="microUsuarios" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="microBDUsuarios">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tabla1" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;5&quot; style=&quot;border-collapse:collapse;font-size:11px;&quot;&gt;&lt;tr style=&quot;background:#dae8fc;&quot;&gt;&lt;th&gt;Criterio&lt;/th&gt;&lt;th&gt;Monolito&lt;/th&gt;&lt;th&gt;Microservicios&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Despliegue&lt;/td&gt;&lt;td&gt;Una sola unidad&lt;/td&gt;&lt;td&gt;Servicios independientes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Escalado&lt;/td&gt;&lt;td&gt;Vertical (más RAM/CPU)&lt;/td&gt;&lt;td&gt;Horizontal por servicio&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Base de datos&lt;/td&gt;&lt;td&gt;Única&lt;/td&gt;&lt;td&gt;Una por servicio&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Fallos&lt;/td&gt;&lt;td&gt;Fallo total&lt;/td&gt;&lt;td&gt;Fallo aislado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Complejidad&lt;/td&gt;&lt;td&gt;Baja al inicio&lt;/td&gt;&lt;td&gt;Alta (red, orquestación)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
+                    <mxGeometry height="180" width="1220" x="80" y="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="mvcTitulo" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;" value="MVC" vertex="1">
+                    <mxGeometry height="30" width="560" x="60" y="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="mvcModelo" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Modelo" vertex="1">
+                    <mxGeometry height="45" width="160" x="250" y="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="mvcVista" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Vista" vertex="1">
+                    <mxGeometry height="45" width="140" x="170" y="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="mvcControlador" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Controlador" vertex="1">
+                    <mxGeometry height="45" width="140" x="350" y="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="mv1" edge="1" parent="1" source="mvcModelo" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;strokeColor=#333333;" target="mvcVista">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mv2" edge="1" parent="1" source="mvcModelo" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;strokeColor=#333333;" target="mvcControlador">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mv3" edge="1" parent="1" source="mvcVista" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;startArrow=classic;strokeColor=#333333;" target="mvcControlador">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hexTitulo" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;" value="Hexagonal (Ports &amp; Adapters)" vertex="1">
+                    <mxGeometry height="30" width="560" x="720" y="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="hexDominio" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Dominio" vertex="1">
+                    <mxGeometry height="90" width="160" x="910" y="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="hexUI" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Adaptador UI (React)" vertex="1">
+                    <mxGeometry height="40" width="160" x="910" y="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="hexRepo" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Adaptador Repositorio" vertex="1">
+                    <mxGeometry height="40" width="160" x="910" y="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="hexAPI" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Adaptador API externa" vertex="1">
+                    <mxGeometry height="40" width="150" x="740" y="675" as="geometry"/>
+                </mxCell>
+                <mxCell id="puertoEntrada" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Puerto" vertex="1">
+                    <mxGeometry height="18" width="50" x="965" y="642" as="geometry"/>
+                </mxCell>
+                <mxCell id="puertoSalida" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Puerto" vertex="1">
+                    <mxGeometry height="18" width="50" x="965" y="742" as="geometry"/>
+                </mxCell>
+                <mxCell id="puertoAPI" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" value="Puerto" vertex="1">
+                    <mxGeometry height="18" width="50" x="855" y="687" as="geometry"/>
+                </mxCell>
+                <mxCell id="hf1" edge="1" parent="1" source="hexUI" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="puertoEntrada">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hf2" edge="1" parent="1" source="puertoSalida" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="hexRepo">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="hf3" edge="1" parent="1" source="hexAPI" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=classic;strokeColor=#333333;" target="puertoAPI">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="tabla2" parent="1" style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;5&quot; style=&quot;border-collapse:collapse;font-size:11px;&quot;&gt;&lt;tr style=&quot;background:#dae8fc;&quot;&gt;&lt;th&gt;Criterio&lt;/th&gt;&lt;th&gt;MVC&lt;/th&gt;&lt;th&gt;Hexagonal&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Capas&lt;/td&gt;&lt;td&gt;Modelo / Vista / Controlador&lt;/td&gt;&lt;td&gt;Dominio + puertos + adaptadores&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Acoplamiento al framework&lt;/td&gt;&lt;td&gt;Alto&lt;/td&gt;&lt;td&gt;Bajo&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Testabilidad&lt;/td&gt;&lt;td&gt;Media&lt;/td&gt;&lt;td&gt;Alta&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Cambiar UI o BD&lt;/td&gt;&lt;td&gt;Afecta a varias capas&lt;/td&gt;&lt;td&gt;Solo se cambia el adaptador&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
+                    <mxGeometry height="150" width="510" x="80" y="840" as="geometry"/>
+                </mxCell>
+                <UserObject label="DIRECCION DEL REPOSITORIO:&lt;div&gt;&lt;font style=&quot;font-size: 28px;&quot;&gt;https://github.com/vasago10/front5Final.git&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" link="&#xa;&lt;div style=&quot;color: #bbbebf;background-color: #121314;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #bbbebf;&quot;&gt;https://github.com/vasago10/front5Final.git&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&#xa;&#xa;" id="ToQiHfx_j_STkJMhQB2K-1">
+                    <mxCell parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1">
+                        <mxGeometry height="90" width="690" x="670" y="870" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

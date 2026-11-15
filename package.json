@@ -39,9 +39,4 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0"
   }
-}                          {/*el jsdom es un entorno de prueba que simula un navegador web en Node.js,
-                          lo que permite ejecutar pruebas de componentes React que dependen del DOM. La propiedad setupFilesAfterEnv se utiliza para especificar archivos que
-                          se ejecutarán después de que se haya configurado el entorno de prueba, lo que permite realizar configuraciones adicionales o importar bibliotecas necesarias para las pruebas.
-                          */}
-                          
-                          {/* linea 15 para usar babel*/}
+}
